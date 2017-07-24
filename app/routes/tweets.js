@@ -3,6 +3,8 @@
 // Local dependecies
 var config = require('nconf');
 var Twitter = require('twitter');
+var logger = require('winston');
+
 var client = new Twitter({
   consumer_key: config.get('TWITTER_CONSUMER_KEY'),
   consumer_secret: config.get('TWITTER_CONSUMER_SECRET'),
@@ -13,9 +15,10 @@ var client = new Twitter({
 module.exports = function(router) {
   'use strict';
   // This will handle the url calls for /tweets/:user_id
-  router.route('/:userId')
+  router.route('/:tweetId')
   .get(function(req, res, next) {
     // Return tweet
+    logger.info(req);
   }) 
   .put(function(req, res, next) {
     // Update tweet
@@ -29,15 +32,21 @@ module.exports = function(router) {
 
   router.route('/')
   .get(function(req, res, next) {
-    // Logic for GET /tweets routes
+    client.get('search/tweets', {q: req.query.q}, function(error, tweets, response) {
+      if(error) logger.error("[tweets] " + req.connection.remoteAddress + ": " + error[0].message);
+      else{
+        logger.info(tweets);   // Tweet body. 
+      }
+      res.json(tweets.statuses);
+    });
   }).post(function(req, res, next) {
     // Create new tweet
-    client.post('statuses/update', {status: 'I Love Twitterr'},  function(error, tweet, response) {
-      if(error) throw error;
-      console.log(tweet);  // Tweet body. 
-      console.log(response);  // Raw response object.
+    client.post('statuses/update', {status: req.body.message}, function(error, tweet, response) {
+      if(error) logger.error("[tweets] " + req.connection.remoteAddress + ": " + error[0].message);
+      else{
+        logger.info(tweet);   // Tweet body. 
+      }
+      res.json(response);  // Raw response object.
     });
-    console.log(req.body);
-    res.json(req.body);
   });
 };
