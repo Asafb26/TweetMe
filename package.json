@@ -1,0 +1,27 @@
+{
+  "name": "tweetme",
+  "version": "1.0.0",
+  "description": "npm project for TweetMe web service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Asafb26/TweetMe.git"
+  },
+  "keywords": [
+    "TweetMe",
+    "RapidAPI",
+    "Challenge"
+  ],
+  "author": "Asaf Ben Aharon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Asafb26/TweetMe/issues"
+  },
+  "homepage": "https://github.com/Asafb26/TweetMe#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
