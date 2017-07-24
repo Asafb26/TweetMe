@@ -8,12 +8,12 @@ var logger = require('winston');
 
 // Load Environment variables from .env file
 require('dotenv').load();
-
-// Set up configs In-RAM only
+// Set up configs
 nconf.use('memory');
-
-// Load command line arguments and enviroment
-nconf.argv().env();
+// First load command line arguments
+nconf.argv();
+// Load environment variables
+nconf.env();
 
 // Load config file for the environment
 if (nconf.get('NODE_ENV').match(/^(development|production)$/)) {
