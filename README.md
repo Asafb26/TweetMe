@@ -35,3 +35,22 @@ post a new weather tweet:
 http post: api/news
 http body json: {"subject": "YOUR_SUBJECT"}
 ```
+
+## Example (using curl for convenience)
+news:
+```
+$curl -H "Content-Type: application/json" -X POST -d "{\"subject\": \"RapidAPI\"}" http://tweetmeapi.herokuapp.com/api/news
+```
+![alt text](http://i64.tinypic.com/zbxp4.jpg)
+
+weather:
+```
+$curl -X POST http://tweetmeapi.herokuapp.com/api/weather
+```
+![alt text](http://i65.tinypic.com/2cyqmhc.jpg)
+
+photos:
+```
+$curl -H "Content-Type: application/json" -X POST -d "{\"subject\": \"earth\"}" http://tweetmeapi.herokuapp.com/api/photos
+```
+![alt text](http://i65.tinypic.com/6ejajd.jpg)
