@@ -13,8 +13,10 @@ module.exports = function (router) {
         .post(function (req, res, next) {
             var clientIp = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
             clientIp = clientIp.replace(/^.*:/, '');
+            //Determine the location of the client by its ip address
             ipLocation(clientIp)
                 .then(function (data) {
+                    //Check the weather by the client city
                     weather.find({ search: data.city, degreeType: 'C' }, function (err, result) {
                         if (err) res.json({ "statusCode": 200, "body": "city not found" });
                         else {
@@ -29,6 +31,7 @@ module.exports = function (router) {
                         }
                     });
                 })
+                //For private ip addresses, cannot found location
                 .catch(function (err) {
                     res.json({ "statusCode": 200, "body": "ip location not found" });
                 })

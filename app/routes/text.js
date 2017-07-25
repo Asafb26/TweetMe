@@ -9,6 +9,7 @@ module.exports = function (router) {
   router.route('/')
     //Search for a tweet
     .get(function (req, res, next) {
+      //Get the tweets
       client.get('search/tweets', { q: req.query.q }, function (error, tweets, response) {
         if (error) logger.error("[tweets] " + req.connection.remoteAddress + ": " + error[0].message);
         else {
