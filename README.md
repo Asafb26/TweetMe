@@ -1,7 +1,8 @@
 # TweetMe
 #### "TweetMe" Is a 3rd party framework for Tweeter communication using REST architecture over Node.js
 
-#### <p style='color:red'>TweetMe web service currently deployed to heroku under the url:                         http://tweetmeapi.herokuapp.com</p>
+- #### TweetMe web service currently deployed to heroku under the url: http://tweetmeapi.herokuapp.com
+- #### More info and documentations can found here: https://drive.google.com/open?id=0B3BcAGXdeCtccHluV0pjV0tSZlU
 
 
 ### Usage:
@@ -36,7 +37,7 @@ http post: api/news
 http body json: {"subject": "YOUR_SUBJECT"}
 ```
 
-## Example (using curl for convenience)
+## Example (using curl for convience)
 news:
 ```
 $curl -H "Content-Type: application/json" -X POST -d "{\"subject\": \"RapidAPI\"}" http://tweetmeapi.herokuapp.com/api/news
@@ -54,3 +55,9 @@ photos:
 $curl -H "Content-Type: application/json" -X POST -d "{\"subject\": \"earth\"}" http://tweetmeapi.herokuapp.com/api/photos
 ```
 ![alt text](http://i65.tinypic.com/6ejajd.jpg)
+
+## Unit Testing (using Mocha and Chai):
+```
+$npm test
+```
+![alt text](http://i65.tinypic.com/2hdz7n9.jpg)
