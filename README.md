@@ -36,7 +36,7 @@ http post: api/news
 http body json: {"subject": "YOUR_SUBJECT"}
 ```
 
-## Example (using curl for convience)
+## Example (using curl for convenience)
 news:
 ```
 $curl -H "Content-Type: application/json" -X POST -d "{\"subject\": \"RapidAPI\"}" http://tweetmeapi.herokuapp.com/api/news
