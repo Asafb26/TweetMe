@@ -17,8 +17,12 @@ var start = function (cb) {
   'use strict';
   // Configure express 
   app = express();
-
-  app.use(morgan('common'));
+  if (config.get('NODE_ENV') !== 'test') {
+    app.use(morgan('common'));
+  }
+  else{
+    logger.level = 'warning';
+  }
 
   // parse application/x-www-form-urlencoded 
   app.use(bodyParser.urlencoded({ extended: true }));
@@ -39,12 +43,15 @@ var start = function (cb) {
     });
     next(err);
   });
-
+  logger.warn("PORT IS:  " + config.get('PORT'));
   app.listen(config.get('PORT'));
   logger.info('[SERVER] Listening on port ' + config.get('PORT'));
 
   if (cb) {
     return cb();
+  }
+  else{
+    return app; //for testing purporse
   }
 };
 
