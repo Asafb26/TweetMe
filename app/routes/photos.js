@@ -19,7 +19,6 @@ module.exports = function (router) {
                 .then(function (response) {
                     if (response.body.photos.photo.length > 0) {
                         var rand = require('random-seed').create();
-                        console.log("RAND! " + rand.random());
                         var randImage = response.body.photos.photo[Math.floor(rand.random() * response.body.photos.photo.length)];
                         flickr
                             .request()
