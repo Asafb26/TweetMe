@@ -1,0 +1,29 @@
+// app/routes/yoda.js
+
+// Local dependecies
+var logger = require('winston');
+var client = require('../model/tweeter');
+var yoda = require('../model/yoda');
+
+module.exports = function (router) {
+    'use strict';
+    router.route('/')
+        .post(function (req, res, next) {
+            yoda.doYoda(req.body.message, function (status, header, body) {
+                if (status == 200) {
+                    // Create new tweet
+                    client.post('statuses/update', { status: body }, function (error, tweet, response) {
+                        if (error) logger.error("[tweets] " + req.connection.remoteAddress + ": " + error[0].message);
+                        else {
+                            logger.info(tweet);   // Tweet body. 
+                        }
+                        res.json(response);  // Raw response object.
+                    });
+                }
+                else {
+                    res.json({ "statusCode": status, "body": "an error occurred" });
+                }
+            })
+
+        });
+};

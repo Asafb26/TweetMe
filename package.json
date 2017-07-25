@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "mocha --timeout 10000"
+    "test": "mocha --timeout 20000"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,7 @@
     "random-seed": "^0.3.0",
     "require-dir": "^0.3.2",
     "twitter": "^1.7.1",
+    "unirest": "^0.5.1",
     "weather-js": "^2.0.0",
     "winston": "^2.3.1"
   },

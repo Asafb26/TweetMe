@@ -1,4 +1,4 @@
-// app/routes/tweets.js
+// app/routes/news.js
 
 // Local dependecies
 var logger = require('winston');

@@ -1,4 +1,4 @@
-// app/routes/tweets.js
+// app/routes/photos.js
 
 // Local dependecies
 var Twitter = require('twitter');
