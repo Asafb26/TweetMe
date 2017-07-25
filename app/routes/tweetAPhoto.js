@@ -1,22 +1,10 @@
 // app/routes/tweets.js
 
 // Local dependecies
-var config = require('nconf');
 var Twitter = require('twitter');
 var logger = require('winston');
-var Flickr = require('flickr-sdk');
-
-var flickr = new Flickr({
-    "apiKey": config.get('FLICKR_KEY'),
-    "apiSecret": config.get('FLICKR_SECRET'),
-});
-
-var client = new Twitter({
-    consumer_key: config.get('TWITTER_CONSUMER_KEY'),
-    consumer_secret: config.get('TWITTER_CONSUMER_SECRET'),
-    access_token_key: config.get('TWITTER_ACCESS_TOKEN_KEY'),
-    access_token_secret: config.get('TWITTER_ACCESS_TOKEN_SECRET')
-});
+var flickr = require('../model/flickr');
+var client = require('../model/tweeter');
 
 module.exports = function (router) {
     'use strict';
