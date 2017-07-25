@@ -9,6 +9,7 @@ module.exports = function (router) {
     'use strict';
     router.route('/')
         .post(function (req, res, next) {
+            //Generate a famous quote
             famous.doFamous(req.body.subject, function (status, header, body) {
                 if (status == 200) {
                     // Create new tweet
@@ -20,6 +21,7 @@ module.exports = function (router) {
                         res.json(response);  // Raw response object.
                     });
                 }
+                //error in quote api
                 else {
                     res.json({ "statusCode": status, "body": "an error occurred" });
                 }

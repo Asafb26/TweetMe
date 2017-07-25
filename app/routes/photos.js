@@ -18,13 +18,16 @@ module.exports = function (router) {
                 .get()
                 .then(function (response) {
                     if (response.body.photos.photo.length > 0) {
+                        //Found photos, choosing one of them
                         var rand = require('random-seed').create();
                         var randImage = response.body.photos.photo[Math.floor(rand.random() * response.body.photos.photo.length)];
+                        //Get link to the choosed photo
                         flickr
                             .request()
                             .media(randImage.id)
                             .get()
                             .then(function (response) {
+                                // Create new tweet
                                 client.post('statuses/update', { status: response.body.photo.urls.url[0]._content }, function (error, tweet, response) {
                                     if (error) logger.error("[tweets] " + req.connection.remoteAddress + ": " + error[0].message);
                                     else {
@@ -34,6 +37,7 @@ module.exports = function (router) {
                                 });
                             });
                     }
+                    //didnt found photos
                     else {
                         res.json({ "statusCode": 200, "body": "photo not found" });
                     }
