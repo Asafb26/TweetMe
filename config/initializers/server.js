@@ -13,7 +13,7 @@ var morgan = require('morgan');
 var logger = require('winston');
 var app;
 
-var start =  function(cb) {
+var start = function (cb) {
   'use strict';
   // Configure express 
   app = express();
@@ -21,17 +21,17 @@ var start =  function(cb) {
   app.use(morgan('common'));
 
   // parse application/x-www-form-urlencoded 
-  app.use(bodyParser.urlencoded({extended: true}));
+  app.use(bodyParser.urlencoded({ extended: true }));
 
   // parse any json 
-  app.use(bodyParser.json({type: '*/*'}));
+  app.use(bodyParser.json({ type: '*/*' }));
   logger.info('[SERVER] Initializing routes');
   require('../../app/routes/index')(app);
 
   app.use(express.static(path.join(__dirname, 'public')));
 
   // Error handler
-  app.use(function(err, req, res, next) {
+  app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.json({
       message: err.message,
@@ -42,7 +42,7 @@ var start =  function(cb) {
 
   app.listen(config.get('NODE_PORT'));
   logger.info('[SERVER] Listening on port ' + config.get('NODE_PORT'));
-  
+
   if (cb) {
     return cb();
   }

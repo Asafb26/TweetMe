@@ -17,10 +17,10 @@ nconf.env();
 
 // Load config file for the environment
 if (nconf.get('NODE_ENV').match(/^(development|production)$/)) {
-    nconf.file({ file: './config/environments/' + nconf.get('NODE_ENV') + '.json' });
+  nconf.file({ file: './config/environments/' + nconf.get('NODE_ENV') + '.json' });
 } else {
-    logger.error('[APP] enviroment module not found:', nconf.get('NODE_ENV'));
-    return;
+  logger.error('[APP] enviroment module not found:', nconf.get('NODE_ENV'));
+  return;
 }
 
 logger.info('[APP] Starting server initialization');
@@ -29,7 +29,7 @@ logger.info('[APP] Starting server initialization');
 async.series([
   function startServer(callback) {
     server(callback);
-  }], function(err) {
+  }], function (err) {
     if (err) {
       logger.error('[APP] initialization failed', err);
     } else {
