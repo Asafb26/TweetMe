@@ -1,6 +1,7 @@
 # TweetMe
 #### "TweetMe" Is a 3rd party framework for Tweeter communication using REST architecture over Node.js
 
+- #### By default, you can check the tweets in this test account: https://twitter.com/TweetMeTest
 - #### TweetMe web service currently deployed to heroku under the url: http://tweetmeapi.herokuapp.com
 - #### More info and documentations can found here: https://drive.google.com/open?id=0B3BcAGXdeCtccHluV0pjV0tSZlU
 
@@ -36,6 +37,19 @@ post a new weather tweet:
 http post: api/news
 http body json: {"subject": "YOUR_SUBJECT"}
 ```
+## yoda - transform your sentence into a yoda style one (from RapidAPI collection)
+post a new yoda tweet:
+```
+http post: api/yoda
+http body json: {"message": "YOUR_MESSAGE"}
+```
+## famous - tweet a random famous quote (from RapidAPI collection)
+post a new famous tweet:
+```
+http post: api/famous
+http body json: {"subject": "YOUR_SUBJECT"}
+*subject should be movies or famous, otherwise you get quotes from any category.
+```
 
 ## Example (using curl for convience)
 news:
@@ -61,3 +75,4 @@ $curl -H "Content-Type: application/json" -X POST -d "{\"subject\": \"earth\"}" 
 $npm test
 ```
 ![alt text](http://i67.tinypic.com/rvais5.jpg)
+
