@@ -111,3 +111,40 @@ describe('weather', () => {
 
     });
 });
+
+//yoda tests
+describe('yoda', () => {
+    describe('/POST yoda', () => {
+        it('it should post a test yoda message', (done) => {
+            let message = {
+                message: "test"+Date.now()
+            }
+            chai.request(server)
+                .post('/api/yoda')
+                .send(message)
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    done();
+                });
+        });
+
+    });
+});
+//famous tests
+describe('famous', () => {
+    describe('/POST famous', () => {
+        it('it should post a test famous message', (done) => {
+            let subject = {
+                subject: "movies"
+            }
+            chai.request(server)
+                .post('/api/famous')
+                .send(subject)
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    done();
+                });
+        });
+
+    });
+});
