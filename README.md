@@ -1,6 +1,7 @@
 # TweetMe
 #### "TweetMe" Is a 3rd party framework for Tweeter communication using REST architecture over Node.js
 
+- #### By default, you can check the tweets in this test account: https://twitter.com/TweetMeTest
 - #### TweetMe web service currently deployed to heroku under the url: http://tweetmeapi.herokuapp.com
 - #### More info and documentations can found here: https://drive.google.com/open?id=0B3BcAGXdeCtccHluV0pjV0tSZlU
 
