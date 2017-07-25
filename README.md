@@ -60,4 +60,4 @@ $curl -H "Content-Type: application/json" -X POST -d "{\"subject\": \"earth\"}" 
 ```
 $npm test
 ```
-![alt text](http://i65.tinypic.com/2hdz7n9.jpg)
+![alt text](http://i67.tinypic.com/rvais5.jpg)
