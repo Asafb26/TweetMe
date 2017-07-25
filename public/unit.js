@@ -7,19 +7,16 @@ nconf.use('memory');
 nconf.argv();
 // Load environment variables
 nconf.env();
-
 // Load env from file
 nconf.file({ file: './config/environments/' + nconf.get('NODE_ENV') + '.json' });
 
-var logger = require('winston');
-
+//test configure
 let chai = require('chai');
 let chaiHttp = require('chai-http');
 let server = require('../config/initializers/server')();
-
 let should = chai.should();
-
 chai.use(chaiHttp);
+
 //Text tests
 describe('texts', () => {
     describe('/GET text', () => {
@@ -91,13 +88,11 @@ describe('photos', () => {
                     done();
                 });
         });
-
     });
 });
 
 //weather tests
 describe('weather', () => {
-    //news test
     describe('/POST weather', () => {
         it('it should faied to post the weather during private ip address -> bad location', (done) => {
             chai.request(server)
