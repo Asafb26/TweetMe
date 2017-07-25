@@ -19,7 +19,7 @@ module.exports = function (router) {
                         if (err) res.json({ "statusCode": 200, "body": "city not found" });
                         else {
                             // Create new tweet
-                            client.post('statuses/update', { status: "It's " + result[0].current.observationtime + " in " + result[0].location.name + " and the temperature is " + result[0].current.temperature + result[0].location.degreetype + " " + result[0].location.imagerelativeurl}, function (error, tweet, response) {
+                            client.post('statuses/update', { status: "It's " + new Date().toISOString().replace(/^.*T/, '').replace(/\..+/, '') + " in " + result[0].location.name + " and the temperature is " + result[0].current.temperature + result[0].location.degreetype }, function (error, tweet, response) {
                                 if (error) logger.error("[tweets] " + req.connection.remoteAddress + ": " + error[0].message);
                                 else {
                                     logger.info(tweet);   // Tweet body. 
