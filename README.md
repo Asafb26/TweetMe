@@ -4,6 +4,7 @@
 - #### By default, you can check the tweets in this test account: https://twitter.com/TweetMeTest
 - #### TweetMe web service currently deployed to heroku under the url: http://tweetmeapi.herokuapp.com
 - #### More info and documentations can found here: https://drive.google.com/open?id=0B3BcAGXdeCtccHluV0pjV0tSZlU
+- #### Do not forget to set env 'NODE_ENV' to 'development' or 'production' before running the program (you can use .env file if you mind)
 
 
 ### Usage:
