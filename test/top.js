@@ -4,9 +4,6 @@ function importTest(name, path) {
     });
 }
 
-var common = require("./common");
-var server
-
 describe("Route Unit Testing", function () {
     importTest("text", './routes/text');
     importTest("news", './routes/news');
