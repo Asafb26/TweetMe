@@ -5,12 +5,12 @@ function importTest(name, path) {
 }
 
 describe("Route Unit Testing", function () {
-    importTest("text", './routes/text');
-    importTest("news", './routes/news');
-    importTest("photos", './routes/photos');
-    importTest("weather", './routes/weather');
-    importTest("yoda", './routes/yoda');
-    importTest("famous", './routes/famous');
+    importTest("text", './modules/text');
+    importTest("news", './modules/news');
+    importTest("photos", './modules/photos');
+    importTest("weather", './modules/weather');
+    importTest("yoda", './modules/yoda');
+    importTest("famous", './modules/famous');
     after(function () {
         console.log("Done!");
     });
