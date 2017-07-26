@@ -16,11 +16,11 @@ nconf.argv();
 nconf.env();
 
 // Load config file for the environment
-if (nconf.get('NODE_ENV').match(/^(development|production)$/)) {
+if (nconf.get('NODE_ENV') != null && nconf.get('NODE_ENV').match(/^(development|production)$/)) {
   nconf.file({ file: './config/environments/' + nconf.get('NODE_ENV') + '.json' });
   logger.info('[APP] running env: ', nconf.get('NODE_ENV'));
 } else {
-  logger.error('[APP] enviroment module not found:', nconf.get('NODE_ENV'));
+  logger.error('[APP] enviroment \'NODE_ENV\' not found (support: production | development | test), got:', nconf.get('NODE_ENV'));
   return;
 }
 
